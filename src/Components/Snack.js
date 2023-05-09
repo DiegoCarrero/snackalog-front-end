@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -24,7 +25,7 @@ export default function Snack() {
   }
 
   return (
-    <div>
+    <div className='SnackDetails'>
 
       {snack.is_healthy ? (
         <span>(is healthy icon)</span>
