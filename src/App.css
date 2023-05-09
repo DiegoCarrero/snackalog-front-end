@@ -32,7 +32,42 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.snacks {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  grid-template-rows: auto;
+}
+
+.snacks div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10%;
+  padding: 10px;
+  background-color: lightgray;
+  border-radius: 15%;
+}
+
+.snacks img {
+  width: auto;
+  height: 200px;
+}
+
+.snacks button {
+  align-items: center;
+  margin: 10%;
+  padding: 10px;
+  background-color: lightgray;
+  border-radius: 15%;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+.snacks span{
+  padding: 2px;
 }

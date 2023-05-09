@@ -11,10 +11,10 @@ export default function Snacks() {
         axios.get(`${API}/snacks`)
             .then((res) => setSnack(res.data))
             .catch((e) => console.warn(e))
-    })
+    }, [])
 
     return (
-        <div>
+        <div className='snacks'>
             {
                 snacks.map((snack) => {
                     return <SnackIndex key={snack.id} snack={snack} />
