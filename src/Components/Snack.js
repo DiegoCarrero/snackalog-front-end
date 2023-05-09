@@ -15,6 +15,14 @@ export default function Snack() {
       .catch((e) => console.warn('catch', e)) 
   }, [id, API])
 
+  const deleteSnack = () => {
+    axios.delete(`${API}/snacks/${id}`)
+      .then(() => navigate('/snacks'), 
+        (error) => console.error(error)
+      )
+      .catch((c) => console.warn('catch', c))
+  }
+
   return (
     <div>
 
@@ -28,7 +36,7 @@ export default function Snack() {
         <Link to={`/snacks/${id}/edit`} >Edit Snack</Link>
       </button>
 
-      <button onClick={handleDelete}>Delete Snack</button>
+      <button onClick={deleteSnack}>Delete Snack</button>
 
     </div>
   )
