@@ -38,10 +38,17 @@
   }
 }
 
-.snacks {
+.snacks{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.snacks section {
   display: grid;
   grid-template-columns: repeat(3, 400px);
   grid-template-rows: auto;
+  align-items: center;
 }
 
 .snacks div {
@@ -70,4 +77,12 @@
 }
 .snacks span{
   padding: 2px;
+}
+
+
+.snacks span{
+  padding: 10px;
+  background-color: lightgray;
+  margin-right: 10px;
+  margin-left: 10px;
 }
