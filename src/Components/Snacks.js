@@ -6,9 +6,11 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Snacks() {
     const [snacks, setSnacks] = useState([]);
-    const [sodium, setSodium] = useState(false)
-    const [calories, setCalories] = useState(false)
-    const [checked, setChecked] = useState(false)
+    const [isHealthy, setIsHealthy] = useState(false);
+    const [lowSodium, setLowSodium] = useState(false);
+    const [lowCalorie, setLowCalorie] = useState(false);
+    const [lowSugar, setLowSugar] = useState(false);
+    const [highFiber, setHighFiber] = useState(false);
 
     useEffect(() => {
         axios.get(`${API}/snacks`)
@@ -20,27 +22,60 @@ export default function Snacks() {
         setItem(!item)
     }
 
+    const filteringHealthy = () => {
+        if (isHealthy) {
+            const filteredArr = snacks.filter((snack) => ((snack.fiber * 100)/snack.calories >= 2 && (snack.sodium * 100)/snack.calories <= 100));
+            setSnacks(filteredArr);
+        }
+    }
+
     const filteringSodium = () => {
-        if (sodium) {
-            const filteredArr = snacks.filter((snack) => snack.sodium <= 5)
+        if (lowSodium) {
+            const filteredArr = snacks.filter((snack) => ((snack.sodium * 100)/snack.calories <= 20))
             setSnacks(filteredArr)
         }
     }
 
     const filteringCalories = () => {
-        if (calories) {
+        if (lowCalorie) {
             const filteredArr = snacks.filter((snack) => snack.calories <= 150)
             setSnacks(filteredArr)
         }
     }
 
+    const filteringSugar = () => {
+        if (lowSugar) {
+            const filteredArr = snacks.filter((snack) => ((snack.sugar * 100)/snack.calories <= 5));
+            setSnacks(filteredArr);
+        }
+    }
+
+    const filteringFiber = () => {
+        if (highFiber) {
+            const filteredArr = snacks.filter((snack) => ((snack.fiber * 100)/snack.calories >= 5));
+            setSnacks(filteredArr);
+        }
+    }
+
+    useEffect(() => {
+        filteringHealthy()
+    }, [isHealthy])
+
     useEffect(() => {
         filteringSodium()
-    }, [sodium])
+    }, [lowSodium])
 
     useEffect(() => {
         filteringCalories()
-    }, [calories])
+    }, [lowCalorie])
+
+    useEffect(() => {
+        filteringSugar()
+    }, [lowSugar])
+
+    useEffect(() => {
+        filteringFiber()
+    }, [highFiber])
 
     return (
         <div className='snacks'>
@@ -50,8 +85,8 @@ export default function Snacks() {
                     <input
                         id="is_healthy"
                         type="checkbox"
-                        onChange={handleCheckboxChange}
-                        checked={checked}
+                        onChange={() => handleCheckboxChange(isHealthy, setIsHealthy)}
+                        checked={isHealthy}
                     />
                     <label htmlFor="healthy">Healthy Snacks</label>
                 </span>
@@ -59,8 +94,8 @@ export default function Snacks() {
                     <input
                         id="low_sodium"
                         type="checkbox"
-                        onChange={() => handleCheckboxChange(sodium, setSodium)}
-                        checked={sodium}
+                        onChange={() => handleCheckboxChange(lowSodium, setLowSodium)}
+                        checked={lowSodium}
                     />
                     <label htmlFor="lowSodium">Low Sodium</label>
                 </span>
@@ -68,8 +103,8 @@ export default function Snacks() {
                     <input
                         id="low_calorie"
                         type="checkbox"
-                        onChange={() => handleCheckboxChange(calories, setCalories)}
-                        checked={calories}
+                        onChange={() => handleCheckboxChange(lowCalorie, setLowCalorie)}
+                        checked={lowCalorie}
                     />
                     <label htmlFor="lowCalorie">Low Calorie</label>
                 </span>
@@ -77,8 +112,8 @@ export default function Snacks() {
                     <input
                         id="low_sugar"
                         type="checkbox"
-                        onChange={handleCheckboxChange}
-                        checked={checked}
+                        onChange={() => handleCheckboxChange(lowSugar, setLowSugar)}
+                        checked={lowSugar}
                     />
                     <label htmlFor="lowSugar">Low Sugar</label>
                 </span>
@@ -86,8 +121,8 @@ export default function Snacks() {
                     <input
                         id="high_fiber"
                         type="checkbox"
-                        onChange={handleCheckboxChange}
-                        checked={checked}
+                        onChange={() => handleCheckboxChange(highFiber, setHighFiber)}
+                        checked={highFiber}
                     />
                     <label htmlFor="highFiber">High Fiber</label>
                 </span>
