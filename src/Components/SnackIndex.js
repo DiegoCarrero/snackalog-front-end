@@ -3,26 +3,11 @@ import { Link } from 'react-router-dom'
 
 export default function SnackIndex({ snack }) {
     const [healthy, setHealthy] = useState(false)
-    const [lowSugar, setLowSugar] = useState(false);
-    const [highFiber, setHighFiber] = useState(false);
-
-    let cals = snack.calories;
-    let fiber = snack.fiber;
-    let sugar = snack.sugar;
-    let sodium =snack.sodium;
 
     function isHealthy() {
-        if ((fiber * 100)/cals >= 2 && (sodium * 100)/cals <= 100) {
+        if ((snack.fiber * 100)/snack.calories >= 2 && (snack.sodium * 100)/snack.calories <= 100) {
             setHealthy(true);
         }
-    }
-
-    function isLowSugar() {
-        (sugar * 100)/ cals <= 5 ? setLowSugar(true) : setLowSugar(false);
-    }
-
-    function isHighFiber() {
-        (fiber * 100)/ cals >= 5 ? setLowSugar(true) : setLowSugar(false);
     }
 
     useEffect(() => {
