@@ -43,8 +43,8 @@ export default function EditSnack() {
 
     useEffect(() => {
         axios.get(`${API}/snacks/${id}`)
-            .then((response) => setSnack(response.data)),
-            (error) => navigate(`/not-found`)
+            .then((response) => setSnack(response.data),
+                (error) => navigate(`/not-found`))
     }, [id, navigate])
 
     const handleSubmit = (event) => {

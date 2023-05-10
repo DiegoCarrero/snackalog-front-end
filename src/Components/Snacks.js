@@ -6,6 +6,8 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Snacks() {
     const [snacks, setSnacks] = useState([]);
+    const [sodium, setSodium] = useState(false)
+    const [calories, setCalories] = useState(false)
     const [checked, setChecked] = useState(false)
 
     useEffect(() => {
@@ -14,9 +16,31 @@ export default function Snacks() {
             .catch((e) => console.warn(e))
     }, [])
 
-    const handleCheckboxChange = () => {
-        setChecked(!checked)
+    const handleCheckboxChange = (item, setItem) => {
+        setItem(!item)
     }
+
+    const filteringSodium = () => {
+        if (sodium) {
+            const filteredArr = snacks.filter((snack) => snack.sodium <= 5)
+            setSnacks(filteredArr)
+        }
+    }
+
+    const filteringCalories = () => {
+        if (calories) {
+            const filteredArr = snacks.filter((snack) => snack.calories <= 150)
+            setSnacks(filteredArr)
+        }
+    }
+
+    useEffect(() => {
+        filteringSodium()
+    }, [sodium])
+
+    useEffect(() => {
+        filteringCalories()
+    }, [calories])
 
     return (
         <div className='snacks'>
@@ -35,8 +59,8 @@ export default function Snacks() {
                     <input
                         id="low_sodium"
                         type="checkbox"
-                        onChange={handleCheckboxChange}
-                        checked={checked}
+                        onChange={() => handleCheckboxChange(sodium, setSodium)}
+                        checked={sodium}
                     />
                     <label htmlFor="lowSodium">Low Sodium</label>
                 </span>
@@ -44,8 +68,8 @@ export default function Snacks() {
                     <input
                         id="low_calorie"
                         type="checkbox"
-                        onChange={handleCheckboxChange}
-                        checked={checked}
+                        onChange={() => handleCheckboxChange(calories, setCalories)}
+                        checked={calories}
                     />
                     <label htmlFor="lowCalorie">Low Calorie</label>
                 </span>
