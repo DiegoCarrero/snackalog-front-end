@@ -100,3 +100,38 @@
   background-color: #fff1e6;
   color: #d3ab9e;
 }
+
+.NavBar{
+  background-color: #eddcd2;
+  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  grid-template-rows: auto;
+  align-items: center;
+  color: #654321;
+}
+
+.NavBar button{
+  align-items: center;
+  margin: 10%;
+  padding: 10px;
+  background-color: #eddcd2;
+  border-radius: 15%;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.NavBar a{
+  text-decoration: none;
+  color: #654321;
+}
+
+.NavBar h1 a{
+  color: black;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.NavBar img{
+  height: 70px;
+}
