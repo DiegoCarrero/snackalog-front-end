@@ -100,3 +100,85 @@
   background-color: #fff1e6;
   color: #d3ab9e;
 }
+
+.NavBar{
+  background-color: #eddcd2;
+  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  grid-template-rows: auto;
+  align-items: center;
+  color: #654321;
+}
+
+.NavBar button{
+  align-items: center;
+  margin: 10%;
+  padding: 10px;
+  background-color: #eddcd2;
+  border-radius: 15%;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.NavBar a{
+  text-decoration: none;
+  color: #654321;
+}
+
+.NavBar h1 a{
+  color: black;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.NavBar img{
+  height: 70px;
+}
+
+.about a{
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.about a:hover{
+  color: red;
+}
+
+.par{
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.par span{
+  font-style: italic;
+}
+
+.about h3{
+  text-align: left;
+  padding-left: 25px;
+}
+
+.about img{
+  width: 275px;
+  border-radius: 50%;
+}
+
+.team{
+  display: flex;
+  flex-direction: row;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+}
+
+.info a{
+  color: red;
+}
+
+.info a:hover{
+  color: black;
+}
