@@ -70,6 +70,7 @@
 .snacks img:hover {
   width: auto;
   height: 270px;
+  border-radius: 50%;
 }
 
 .snacks button {
