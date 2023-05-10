@@ -6,12 +6,17 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Snacks() {
     const [snacks, setSnacks] = useState([]);
+    const [checked, setChecked] = useState(false)
 
     useEffect(() => {
         axios.get(`${API}/snacks`)
             .then((res) => setSnacks(res.data))
             .catch((e) => console.warn(e))
     }, [])
+
+    const handleCheckboxChange = () => {
+        setChecked(!checked)
+    }
 
     return (
         <div className='snacks'>
@@ -21,8 +26,8 @@ export default function Snacks() {
                     <input
                         id="is_healthy"
                         type="checkbox"
-                        onChange={true}
-                        checked={false}
+                        onChange={handleCheckboxChange}
+                        checked={checked}
                     />
                     <label htmlFor="healthy">Healthy Snacks</label>
                 </span>
@@ -30,8 +35,8 @@ export default function Snacks() {
                     <input
                         id="low_sodium"
                         type="checkbox"
-                        onChange={true}
-                        checked={false}
+                        onChange={handleCheckboxChange}
+                        checked={checked}
                     />
                     <label htmlFor="lowSodium">Low Sodium</label>
                 </span>
@@ -39,8 +44,8 @@ export default function Snacks() {
                     <input
                         id="low_calorie"
                         type="checkbox"
-                        onChange={true}
-                        checked={false}
+                        onChange={handleCheckboxChange}
+                        checked={checked}
                     />
                     <label htmlFor="lowCalorie">Low Calorie</label>
                 </span>
@@ -48,8 +53,8 @@ export default function Snacks() {
                     <input
                         id="low_sugar"
                         type="checkbox"
-                        onChange={true}
-                        checked={false}
+                        onChange={handleCheckboxChange}
+                        checked={checked}
                     />
                     <label htmlFor="lowSugar">Low Sugar</label>
                 </span>
@@ -57,8 +62,8 @@ export default function Snacks() {
                     <input
                         id="high_fiber"
                         type="checkbox"
-                        onChange={true}
-                        checked={false}
+                        onChange={handleCheckboxChange}
+                        checked={checked}
                     />
                     <label htmlFor="highFiber">High Fiber</label>
                 </span>

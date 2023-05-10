@@ -38,7 +38,7 @@
   }
 }
 
-.snacks{
+.snacks {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -49,6 +49,7 @@
   grid-template-columns: repeat(3, 400px);
   grid-template-rows: auto;
   align-items: center;
+  color: #654321;
 }
 
 .snacks div {
@@ -57,7 +58,7 @@
   align-items: center;
   margin: 10%;
   padding: 10px;
-  background-color: lightgray;
+  background-color: #eddcd2;
   border-radius: 15%;
 }
 
@@ -66,23 +67,35 @@
   height: 200px;
 }
 
+.snacks img:hover {
+  width: auto;
+  height: 270px;
+}
+
 .snacks button {
   align-items: center;
   margin: 10%;
   padding: 10px;
-  background-color: lightgray;
+  background-color: #eddcd2;
   border-radius: 15%;
   font-weight: bolder;
   font-size: xx-large;
 }
-.snacks span{
+
+.snacks span {
   padding: 2px;
 }
 
 
-.snacks span{
+.snacks span {
   padding: 10px;
-  background-color: lightgray;
+  background-color: #eddcd2;
   margin-right: 10px;
   margin-left: 10px;
+  color: #654321;
+}
+
+.App {
+  background-color: #fff1e6;
+  color: #d3ab9e;
 }
