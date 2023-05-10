@@ -32,7 +32,70 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.snacks {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.snacks section {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  grid-template-rows: auto;
+  align-items: center;
+  color: #654321;
+}
+
+.snacks div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10%;
+  padding: 10px;
+  background-color: #eddcd2;
+  border-radius: 15%;
+}
+
+.snacks img {
+  width: auto;
+  height: 200px;
+}
+
+.snacks img:hover {
+  width: auto;
+  height: 270px;
+}
+
+.snacks button {
+  align-items: center;
+  margin: 10%;
+  padding: 10px;
+  background-color: #eddcd2;
+  border-radius: 15%;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.snacks span {
+  padding: 2px;
+}
+
+
+.snacks span {
+  padding: 10px;
+  background-color: #eddcd2;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #654321;
+}
+
+.App {
+  background-color: #fff1e6;
+  color: #d3ab9e;
 }
