@@ -1,59 +1,46 @@
+import React from 'react'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
 
 const API = process.env.REACT_APP_API_URL;
 
-export default function EditSnack() {
+export default function NewSnack() {
+    const [snack, setSnack] = useState({
+        name: '',
+        image: '',
+        calories: '',
+        fiber: '',
+        sodium: '',
+        sugar: '',
+        gluten_free: false,
+        flavor_profile: '',
+        is_healthy: '',
+    });
 
-    let { id } = useParams();
-    let navigate = useNavigate();
+    const navigate = useNavigate()
 
-    const [snack, setSnack] = useState(
-        {
-            name: '',
-            image: '',
-            calories: '',
-            fiber: '',
-            sodium: '',
-            sugar: '',
-            gluten_free: false,
-            flavor_profile: '',
-            is_healthy: '',
-        }
-    );
-
-    const updateSnack = (snackToUpdate) => {
-        axios.put(`${API}/snacks/${id}`, snackToUpdate)
-            .then(() => {
-                navigate(`/snacks/${id}`)
-            },
-                (error) => console.error(error)
-            )
-            .catch((c) => console.warn("catch", c))
-    }
-
-    const handleTextChange = (event) => {
-        setSnack({ ...snack, [event.target.id]: event.target.value });
-    }
+    const handleTextChange = (e) => {
+        setSnack({ ...snack, [e.target.id]: e.target.value });
+    };
 
     const handleCheckboxChange = () => {
         setSnack({ ...snack, gluten_free: !snack.gluten_free });
+    };
+
+    const addSnack = (newSnack) => {
+        axios.post(`${API}/snacks`, newSnack)
+            .then(() => navigate('/snacks'))
+            .catch((e) => console.warn(e))
     }
 
-    useEffect(() => {
-        axios.get(`${API}/snacks/${id}`)
-            .then((response) => setSnack(response.data),
-                (error) => navigate(`/not-found`))
-    }, [id, navigate])
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        updateSnack(snack, id);
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        addSnack(snack)
     }
 
     return (
-        <div className='Edit'>
+        <div className='new'>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">Snack Name:</label>
                 <input
@@ -70,7 +57,7 @@ export default function EditSnack() {
                     type="text"
                     pattern="http[s]*://.+"
                     required
-                    value={snack.image}
+                    value={snack.url}
                     placeholder="http://"
                     onChange={handleTextChange}
                 />
@@ -118,7 +105,6 @@ export default function EditSnack() {
                     checked={snack.gluten_free}
                 />
                 <label htmlFor="flavor_profile">Flavor Profile:</label>
-                {/* add dropdown menu with: sweet, salty, acid, bitter and umami */}
                 <input
                     id="flavor_profile"
                     type="text"
@@ -127,14 +113,9 @@ export default function EditSnack() {
                     placeholder=""
                     onChange={handleTextChange}
                 />
-
                 <br />
-
                 <input type="submit" className='submit' />
             </form>
-            <Link to={`/snacks/${id}`}>
-                <button>Back to Snack Details</button>
-            </Link>
         </div>
     )
 }

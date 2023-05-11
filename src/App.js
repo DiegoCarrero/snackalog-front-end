@@ -5,6 +5,7 @@ import Snacks from './Components/Snacks';
 import NotFound from './Components/NotFound.js';
 import NavBar from './Components/NavBar.js';
 import Snack from './Components/Snack.js';
+import NewSnack from './Components/NewSnack.js';
 import EditSnack from './Components/EditSnack.js';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/snacks' element={<Snacks />} />
         <Route path='/snacks/:id' element={<Snack />} />
         <Route path='/snacks/:id/edit' element={<EditSnack />} />
+        <Route path='/snacks/new' element={<NewSnack />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

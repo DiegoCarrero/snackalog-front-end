@@ -133,7 +133,6 @@ export default function Snacks() {
                         return <SnackIndex key={snack.id} snack={snack} />
                     })
                 }
-                <button>New Snack</button>
             </section>
         </div>
     )
