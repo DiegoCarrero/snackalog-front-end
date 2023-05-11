@@ -9,6 +9,9 @@ import NewSnack from './Components/NewSnack.js';
 import EditSnack from './Components/EditSnack.js';
 
 function App() {
+
+
+
   return (
     <div className="App">
       <NavBar />
@@ -16,9 +19,9 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/snacks' element={<Snacks />} />
         <Route path='/snacks/:id' element={<Snack />} />
-        <Route path='*' element={<NotFound />} />
-        <Route path='/snacks/new' element={<NewSnack />} />
         <Route path='/snacks/:id/edit' element={<EditSnack />} />
+        <Route path='/snacks/new' element={<NewSnack />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );
