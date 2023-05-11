@@ -176,9 +176,58 @@
 }
 
 .info a{
-  color: red;
+  color: #654321;
 }
 
 .info a:hover{
   color: black;
+}
+
+.new{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #654321;
+  margin: 20px;
+}
+
+.new form label{
+  padding-top: 10px;
+}
+
+.submit{
+  align-items: center;
+  padding: 10px;
+  background-color: #eddcd2;
+  border-radius: 15%;
+}
+
+.Edit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Edit form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #654321;
+}
+
+.Edit form label{
+  padding-top: 10px;
+}
+
+.Edit button{
+  align-items: center;
+  padding: 10px;
+  background-color: #eddcd2;
+  border-radius: 15%;
 }
