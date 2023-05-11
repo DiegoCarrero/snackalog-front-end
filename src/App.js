@@ -7,6 +7,9 @@ import NavBar from './Components/NavBar.js';
 import Snack from './Components/Snack.js';
 
 function App() {
+
+  
+
   return (
     <div className="App">
       <NavBar />
