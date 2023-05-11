@@ -1,12 +1,14 @@
 import { ExternalLink } from "react-external-link"
 import diego from '../assets/diego.jpeg'
 import rmr from '../assets/rmr.jpeg'
+import { Link } from "react-router-dom"
 
 export default function Home() {
   return (
     <div className="Home">
       <section className="AppDescription">
-        <p>Description of the app and how to use it</p>
+        <p>Welcome to our Snack-a-log Web App. click on <Link to={`/snacks`}>All Snacks</Link> to view a list of snacks. Use filtering features, add a new snack or edit an existing one :)
+        </p>
       </section>
       <section className="AboutUs">
         <h2 className="about">About Us</h2>
