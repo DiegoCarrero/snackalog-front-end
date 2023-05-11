@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #fff1e6;
+  color: #d3ab9e;
 }
 
 .App-logo {
@@ -181,4 +183,18 @@
 
 .info a:hover{
   color: black;
+}
+
+.snack-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10%;
+  padding: 10px;
+  border-radius: 15%;
+}
+
+.snack-details img {
+  width: auto;
+  height: 400px;
 }

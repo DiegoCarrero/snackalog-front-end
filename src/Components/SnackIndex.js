@@ -14,7 +14,6 @@ export default function SnackIndex({ snack }) {
         isHealthy()
     }, [])
 
-
     return (
         <div>
             <h3>{snack.name} {healthy ? "❤️" : "♡"}</h3>
