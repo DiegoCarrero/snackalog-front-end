@@ -10,25 +10,25 @@ export default function Snack() {
   const [healthy, setHealthy] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-  const copy = {...snack}
+  // const copy = {...snack}
 
   useEffect(() => {
     axios.get(`${API}/snacks/${id}`)
       .then((response) => {
         setSnack(response.data)
-        isHealthy();
+        // isHealthy();
       })
       .catch((e) => console.warn('catch', e)) 
-      console.log(copy)
+      // console.log(copy)
   }, [])
 
-  function isHealthy() {
-    if ((copy.fiber * 100)/copy.calories >= 2 && (copy.sodium * 100)/copy.calories <= 100) {
-        setHealthy(true);
-    } else {
-      setHealthy(false)
-    }
-  }
+  // function isHealthy() {
+  //   if ((copy.fiber * 100)/copy.calories >= 2 && (copy.sodium * 100)/copy.calories <= 100) {
+  //       setHealthy(true);
+  //   } else {
+  //     setHealthy(false)
+  //   }
+  // }
 
   // useEffect(() => {
   //   isHealthy();
