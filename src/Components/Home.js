@@ -7,8 +7,7 @@ export default function Home() {
   return (
     <div className="Home">
       <section className="AppDescription">
-        <p>Welcome to our Snack-a-log Web App. click on <Link to={`/snacks`}>All Snacks</Link> to view a list of snacks. Use filtering features, add a new snack or edit an existing one :)
-        </p>
+        <p>Welcome to our Snack-a-log Web App. Click on <Link to={`/snacks`}>All Snacks</Link> to view a list of snacks. Use filtering features, add a new snack or edit an existing one :)</p>
       </section>
       <section className="AboutUs">
         <h2 className="about">About Us</h2>
