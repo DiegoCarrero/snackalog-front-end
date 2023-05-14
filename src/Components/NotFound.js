@@ -1,9 +1,9 @@
 import React from 'react'
+import four from '../assets/404.gif'
 
 export default function NotFound() {
   return (
-    <div>
-      Not Found, try again.
+    <div className='not-found'>
     </div>
   )
 }

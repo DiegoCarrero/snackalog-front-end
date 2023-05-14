@@ -15,11 +15,11 @@ export default function Snack() {
       .then((response) => {
         setSnack(response.data)
       })
-      .catch((e) => console.warn('catch', e)) 
+      .catch((e) => console.warn('catch', e))
   }, [])
 
   function isHealthy() {
-    if ((snack.fiber * 100)/snack.calories >= 2 && (snack.sodium * 100)/snack.calories <= 100) {
+    if ((snack.fiber * 100) / snack.calories >= 2 && (snack.sodium * 100) / snack.calories <= 100) {
       return "❤️"
     } else {
       return "♡"
@@ -28,15 +28,14 @@ export default function Snack() {
 
   const deleteSnack = () => {
     axios.delete(`${API}/snacks/${id}`)
-      .then(() => navigate('/snacks'), 
+      .then(() => navigate('/snacks'),
         (error) => console.error(error)
       )
       .catch((c) => console.warn('catch', c))
   }
 
-  return (    
+  return (
     <div className='snack-details'>
-
       <h1>{snack.name} {isHealthy()} </h1>
       <img src={snack.image} alt={snack.name} />
       <span><strong>{snack.flavor_profile}</strong></span>
@@ -46,12 +45,14 @@ export default function Snack() {
       <span><strong>Sugar: </strong>{snack.sugar} g</span>
       <span><strong>{snack.gluten_free ? "Gluten Free" : null}</strong></span>
 
-      <button>
-        <Link to={`/snacks/${id}/edit`} >Edit Snack</Link>
-      </button>
-
-      <button onClick={deleteSnack}>Delete Snack</button>
-
+      <div className='detail-buttons'>
+        <button>
+          <Link to={`/snacks/${id}/edit`} >Edit Snack</Link>
+        </button>
+        <br />
+        <br />
+        <button onClick={deleteSnack}>Delete Snack</button>
+      </div>
     </div>
   )
 }

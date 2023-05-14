@@ -251,12 +251,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10%;
   padding: 10px;
   border-radius: 15%;
+  color: #654321;
 }
 
 .snack-details img {
   width: auto;
   height: 400px;
+}
+
+.snack-details button {
+  align-items: center;
+  padding: 10px;
+  background-color: #eddcd2;
+  border-radius: 15%;
+}
+
+.snack-details a {
+  text-decoration: none;
+  color: #654321;
+}
+
+.snack-details span {
+  padding: 0.2%;
+}
+
+.detail-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+}
+
+.not-found{
+  background-image: url('./assets/404.jpeg');
+  height: 600px;
 }

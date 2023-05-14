@@ -2,6 +2,8 @@
 
 # [BACKEND REPO](https://github.com/arerimr/snack-a-log-backend)
 
+#### [CLICK HERE](http://localhost:3000/) to view site!
+
 ## About
 Full stack web application where user can view all snacks, or a single snack, update, create or delete a single snack. This application was created as part of the pursuit curriculum for educational purposes.
 
@@ -21,18 +23,25 @@ A list of snacks will be shown
 
 <br>
 
-![SHOW PAGE]()
+## Show Page
+
+![SHOW PAGE](./src/assets/show.png)
 
 <br>
 
-#### [CLICK HERE](http://localhost:3000/) to view site!
-Search and New Form
+## 404 Page
+
+![404 PAGE](./src/assets/notfound.png)
+
+<br>
+
+## Search and New Form
 ![FORM](./src/assets/form.png)
 
 <br>
 
 ### Languages
 <p>⌨ JAVASCRIPT: EXPRESS.JS, REACT.JS</p>
-<p>🍩SQL</p>
+<p>🍩 SQL</p>
 <p>💻 HTML</p>
 🎨 CSS
