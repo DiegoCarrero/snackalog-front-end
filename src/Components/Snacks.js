@@ -15,6 +15,7 @@ export default function Snacks() {
     useEffect(() => {
         axios.get(`${API}/snacks`)
             .then((res) => setSnacks(res.data))
+            .then(console.log(snacks))
             .catch((e) => console.warn(e))
     }, [])
 

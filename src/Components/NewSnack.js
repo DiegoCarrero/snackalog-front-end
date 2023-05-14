@@ -6,6 +6,7 @@ import axios from 'axios';
 const API = process.env.REACT_APP_API_URL;
 
 export default function NewSnack() {
+
     const [snack, setSnack] = useState({
         name: '',
         image: '',
@@ -15,18 +16,18 @@ export default function NewSnack() {
         sugar: '',
         gluten_free: false,
         flavor_profile: '',
-        is_healthy: '',
-    });
+        is_healthy: false,
+    })
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
-    const handleTextChange = (e) => {
+    const handleChange = (e) => {
         setSnack({ ...snack, [e.target.id]: e.target.value });
-    };
+    }
 
     const handleCheckboxChange = () => {
         setSnack({ ...snack, gluten_free: !snack.gluten_free });
-    };
+    }
 
     const addSnack = (newSnack) => {
         axios.post(`${API}/snacks`, newSnack)
@@ -35,8 +36,9 @@ export default function NewSnack() {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        addSnack(snack)
+        e.preventDefault();
+        console.log(snack)
+        addSnack(snack);
     }
 
     return (
@@ -47,55 +49,59 @@ export default function NewSnack() {
                     id="name"
                     value={snack.name}
                     type="text"
-                    onChange={handleTextChange}
+                    onChange={handleChange}
                     placeholder="Name of Snack"
                     required
                 />
-                <label htmlFor="url">Image URL:</label>
+                <label htmlFor="image">Image URL:</label>
                 <input
-                    id="url"
+                    id="image"
                     type="text"
                     pattern="http[s]*://.+"
                     required
-                    value={snack.url}
+                    value={snack.image}
                     placeholder="http://"
-                    onChange={handleTextChange}
+                    onChange={handleChange}
                 />
                 <label htmlFor="calories">Calories:</label>
                 <input
                     id="calories"
-                    type="text"
+                    type="number"
+                    min={0}
                     name="calories"
                     value={snack.calories}
                     placeholder="0"
-                    onChange={handleTextChange}
+                    onChange={handleChange}
                 />
                 <label htmlFor="fiber">Fiber:</label>
                 <input
                     id="fiber"
-                    type="text"
+                    type="number"
+                    min={0}
                     name="fiber"
                     value={snack.fiber}
                     placeholder="0"
-                    onChange={handleTextChange}
+                    onChange={handleChange}
                 />
                 <label htmlFor="sodium">Sodium:</label>
                 <input
                     id="sodium"
-                    type="text"
+                    type="number"
+                    min={0}
                     name="sodium"
                     value={snack.sodium}
                     placeholder="0"
-                    onChange={handleTextChange}
+                    onChange={handleChange}
                 />
                 <label htmlFor="sugar">Sugar:</label>
                 <input
                     id="sugar"
-                    type="text"
+                    type="number"
+                    min={0}
                     name="sugar"
                     value={snack.sugar}
                     placeholder="0"
-                    onChange={handleTextChange}
+                    onChange={handleChange}
                 />
                 <label htmlFor="gluten_free">Gluten Free:</label>
                 <input
@@ -111,7 +117,7 @@ export default function NewSnack() {
                     name="flavor_profile"
                     value={snack.flavor_profile}
                     placeholder=""
-                    onChange={handleTextChange}
+                    onChange={handleChange}
                 />
                 <br />
                 <input type="submit" className='submit' />
