@@ -16,18 +16,18 @@ export default function NewSnack() {
         sugar: '',
         gluten_free: false,
         flavor_profile: '',
-        is_healthy: '',
-    });
+        is_healthy: false,
+    })
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setSnack({ ...snack, [e.target.id]: e.target.value });
-    };
+    }
 
     const handleCheckboxChange = () => {
         setSnack({ ...snack, gluten_free: !snack.gluten_free });
-    };
+    }
 
     const addSnack = (newSnack) => {
         axios.post(`${API}/snacks`, newSnack)
