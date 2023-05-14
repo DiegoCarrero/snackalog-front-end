@@ -25,14 +25,14 @@ export default function Snacks() {
 
     const filteringHealthy = () => {
         if (isHealthy) {
-            const filteredArr = snacks.filter((snack) => ((snack.fiber * 100)/snack.calories >= 2 && (snack.sodium * 100)/snack.calories <= 100));
+            const filteredArr = snacks.filter((snack) => ((snack.fiber * 100) / snack.calories >= 2 && (snack.sodium * 100) / snack.calories <= 100));
             setSnacks(filteredArr);
         }
     }
 
     const filteringSodium = () => {
         if (lowSodium) {
-            const filteredArr = snacks.filter((snack) => ((snack.sodium * 100)/snack.calories <= 20))
+            const filteredArr = snacks.filter((snack) => ((snack.sodium * 100) / snack.calories <= 20))
             setSnacks(filteredArr)
         }
     }
@@ -46,14 +46,14 @@ export default function Snacks() {
 
     const filteringSugar = () => {
         if (lowSugar) {
-            const filteredArr = snacks.filter((snack) => ((snack.sugar * 100)/snack.calories <= 5));
+            const filteredArr = snacks.filter((snack) => ((snack.sugar * 100) / snack.calories <= 5));
             setSnacks(filteredArr);
         }
     }
 
     const filteringFiber = () => {
         if (highFiber) {
-            const filteredArr = snacks.filter((snack) => ((snack.fiber * 100)/snack.calories >= 5));
+            const filteredArr = snacks.filter((snack) => ((snack.fiber * 100) / snack.calories >= 5));
             setSnacks(filteredArr);
         }
     }
