@@ -6,33 +6,25 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Snack() {
 
-  const [snack, setSnack] = useState({});
-  const [healthy, setHealthy] = useState(false);
+  const [snack, setSnack] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
-  // const copy = {...snack}
 
   useEffect(() => {
     axios.get(`${API}/snacks/${id}`)
       .then((response) => {
         setSnack(response.data)
-        // isHealthy();
       })
       .catch((e) => console.warn('catch', e)) 
-      // console.log(copy)
   }, [])
 
-  // function isHealthy() {
-  //   if ((copy.fiber * 100)/copy.calories >= 2 && (copy.sodium * 100)/copy.calories <= 100) {
-  //       setHealthy(true);
-  //   } else {
-  //     setHealthy(false)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   isHealthy();
-  // }, [healthy])
+  function isHealthy() {
+    if ((snack.fiber * 100)/snack.calories >= 2 && (snack.sodium * 100)/snack.calories <= 100) {
+      return "❤️"
+    } else {
+      return "♡"
+    }
+  }
 
   const deleteSnack = () => {
     axios.delete(`${API}/snacks/${id}`)
@@ -45,7 +37,7 @@ export default function Snack() {
   return (    
     <div className='snack-details'>
 
-      <h1>{snack.name} {healthy ? "❤️" : "♡"}</h1>
+      <h1>{snack.name} {isHealthy()} </h1>
       <img src={snack.image} alt={snack.name} />
       <span><strong>{snack.flavor_profile}</strong></span>
       <span><strong>Calories: </strong>{snack.calories} cals</span>
