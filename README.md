@@ -2,7 +2,7 @@
 
 # [BACKEND REPO](https://github.com/arerimr/snack-a-log-backend)
 
-#### [CLICK HERE](http://localhost:3000/) to view site!
+#### [CLICK HERE](https://luminous-travesseiro-0eb39b.netlify.app/) to view site!
 
 ## About
 Full stack web application where user can view all snacks, or a single snack, update, create or delete a single snack. This application was created as part of the pursuit curriculum for educational purposes.
