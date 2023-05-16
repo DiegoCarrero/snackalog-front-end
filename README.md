@@ -1,4 +1,4 @@
-# [Snackalog](http://localhost:3000/)
+# [Snackalog](https://luminous-travesseiro-0eb39b.netlify.app/)
 
 # [BACKEND REPO](https://github.com/arerimr/snack-a-log-backend)
 
